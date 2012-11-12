@@ -41,17 +41,13 @@
 
 - (void)badAccessTapped:(id)sender
 {
-    //    NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-    //    NSLog(@"%@",date);
-    //    NSLog(@"%d",[date retainCount]);
-    //    [date release];
-    //    NSLog(@"%d",[date retainCount]);
-    
     NSObject *obj = [[NSObject alloc] init];
     
+    NSLog(@" ================= ");
     NSLog(@"before : %d",[obj retainCount]);
     [obj release];
-    NSLog(@"after %d",[obj retainCount]);
+    NSLog(@"after : %d",[obj retainCount]);
+    [obj autorelease];
 }
 
 //- (void)unRecgenizedSelector:(id)sender
