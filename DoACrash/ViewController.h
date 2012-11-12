@@ -10,4 +10,12 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)beyondBoundsTapped:(id)sender;
+
+- (IBAction)badAccessTapped:(id)sender;
+
+- (IBAction)unRecgenizedSelector:(id)sender;
+
+- (IBAction)pointerProblem:(id)sender;
+
 @end
