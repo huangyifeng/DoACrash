@@ -10,9 +10,25 @@
 
 @interface ViewController ()
 
+- (void)initUserData;
+
+@property(nonatomic, assign)BOOL                    _testBool;
+@property(nonatomic, assign)NSInteger               _testInteger;
+@property(nonatomic, retain)NSMutableDictionary     *_testDict;
+
 @end
 
 @implementation ViewController
+
+@synthesize _testBool       = _testBool;
+@synthesize _testInteger    = _testInteger;
+@synthesize _testDict       = _testDict;
+
+- (void)dealloc
+{
+    [_testDict release];
+    [super dealloc];
+}
 
 - (void)viewDidLoad
 {
@@ -31,6 +47,18 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - private
+
+- (void)initUserData
+{
+    self._testBool = YES;
+    self._testInteger = 1;
+    
+    self._testDict = [NSMutableDictionary dictionary];
+    [self._testDict setObject:@"Obama" forKey:@"userName"];
+    [self._testDict setObject:@"(nod)" forKey:@"likeApple"];
+}
+
 #pragma mark - IBAction
 
 - (void)beyondBoundsTapped:(id)sender
@@ -42,11 +70,7 @@
 - (void)badAccessTapped:(id)sender
 {
     NSObject *obj = [[NSObject alloc] init];
-    
-    NSLog(@" ================= ");
-    NSLog(@"before : %d",[obj retainCount]);
     [obj release];
-    NSLog(@"after : %d",[obj retainCount]);
     [obj autorelease];
 }
 

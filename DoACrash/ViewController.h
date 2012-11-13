@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+@private
+    BOOL                _testBool;
+    NSInteger           _testInteger;
+    NSMutableDictionary *_testDict;
+    
+}
 
 - (IBAction)beyondBoundsTapped:(id)sender;
 
